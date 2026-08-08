@@ -67,6 +67,8 @@ export function Hero() {
               className="mt-7 text-5xl font-semibold sm:text-6xl lg:text-7xl"
             >
               {profile.name}
+              {/* JSX drops the newline here, so the h1's text content would
+                  otherwise read "Prashu PandeyFull stack developer". */}{" "}
               <span className="mt-3 block font-serif text-2xl font-normal italic sm:text-3xl lg:text-4xl">
                 <span className="text-accent">Full stack</span>{" "}
                 <span className="text-foreground-muted">developer</span>

@@ -26,9 +26,11 @@ export function SiteFooter() {
 
           <div className="flex gap-14 sm:gap-20">
             <nav aria-label="Footer">
-              <h2 className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
+              {/* Plain text, not a heading: these are column labels and would
+                  otherwise sit alongside real sections in the document outline. */}
+              <p className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
                 Navigate
-              </h2>
+              </p>
               <ul className="mt-4 space-y-2.5">
                 {navItems.map((item) => (
                   <li key={item.id}>
@@ -43,10 +45,10 @@ export function SiteFooter() {
               </ul>
             </nav>
 
-            <div>
-              <h2 className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
+            <nav aria-label="Profiles and contact">
+              <p className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
                 Elsewhere
-              </h2>
+              </p>
               <ul className="mt-4 space-y-2.5">
                 {profile.socials.map((social) => (
                   <li key={social.label}>
@@ -69,7 +71,7 @@ export function SiteFooter() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </nav>
           </div>
         </div>
 
