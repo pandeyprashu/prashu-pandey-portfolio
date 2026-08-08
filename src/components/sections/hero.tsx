@@ -1,17 +1,27 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
-import Image from "next/image";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 import { buttonStyles } from "@/components/ui/button";
-import { profile } from "@/content";
+import { experiences, profile } from "@/content";
 import { EASE_OUT } from "@/lib/motion";
 
 const stats = [
   { value: "3", label: "apps live on iOS & Android" },
   { value: "6", label: "codebases owned end to end" },
   { value: "3", label: "products shipped" },
+];
+
+const [currentRole] = experiences;
+
+/** Scannable summary that answers the first questions a recruiter has. */
+const glanceFacts = [
+  { label: "Currently", value: `${currentRole.role}, ${currentRole.company}` },
+  { label: "Since", value: "February 2025" },
+  { label: "Based in", value: `${profile.location} · IST (UTC+5:30)` },
+  { label: "Focus", value: "TypeScript · React · React Native · Node.js" },
+  { label: "Open to", value: "Full-time roles & freelance projects" },
 ];
 
 export function Hero() {
@@ -133,30 +143,28 @@ export function Hero() {
             transition={{ duration: 0.7, ease: EASE_OUT }}
             className="lg:col-span-5"
           >
-            <div className="relative mx-auto max-w-xs lg:ml-auto">
+            <div className="relative lg:ml-auto lg:max-w-sm">
               <div
                 aria-hidden
-                className="absolute -inset-3 -z-10 rounded-[2rem] bg-accent-vivid/10 blur-2xl"
+                className="absolute -inset-3 -z-10 rounded-[2rem] bg-accent-vivid/8 blur-2xl"
               />
-              <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_20px_60px_-24px_rgb(var(--shadow-color)/0.45)]">
-                <Image
-                  src="/prashu-pandey.png"
-                  alt={`Portrait of ${profile.name}`}
-                  width={437}
-                  height={381}
-                  priority
-                  sizes="(min-width: 1024px) 20rem, 16rem"
-                  className="w-full object-cover"
-                />
-                <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-3.5">
-                  <span className="inline-flex items-center gap-1.5 text-xs text-foreground-muted">
-                    <MapPin className="size-3.5" strokeWidth={1.8} />
-                    {profile.location}
-                  </span>
-                  <span className="font-mono text-[0.7rem] text-accent">
-                    since 2025 @ RemoteState
-                  </span>
-                </div>
+              <div className="rounded-3xl border border-border bg-surface/60 p-6 backdrop-blur sm:p-7">
+                <p className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
+                  At a glance
+                </p>
+                <div className="rule-fade mt-4" />
+                <dl className="mt-5 space-y-4">
+                  {glanceFacts.map((fact) => (
+                    <div key={fact.label}>
+                      <dt className="font-mono text-[0.7rem] tracking-[0.12em] text-foreground-subtle uppercase">
+                        {fact.label}
+                      </dt>
+                      <dd className="mt-1 text-sm leading-snug text-foreground">
+                        {fact.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </div>
           </motion.div>

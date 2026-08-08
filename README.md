@@ -48,9 +48,10 @@ the site:
 `types.ts` defines the shapes, so TypeScript will flag anything missing.
 
 To swap the résumé, replace `public/prashu-pandey-resume.pdf` (the path is set
-in `profile.ts`). To swap the portrait, replace `public/prashu-pandey.png` and
-update the `width`/`height` props in `src/components/sections/hero.tsx` to match
-the new file's intrinsic dimensions.
+in `profile.ts`).
+
+The hero's "at a glance" panel is defined in `src/components/sections/hero.tsx`,
+alongside the three headline stats.
 
 ## Deploying to Vercel
 

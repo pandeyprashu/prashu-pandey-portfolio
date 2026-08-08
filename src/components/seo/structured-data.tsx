@@ -16,7 +16,6 @@ export function StructuredData() {
     jobTitle: profile.role,
     description: siteConfig.description,
     url: siteUrl,
-    image: `${siteUrl}/prashu-pandey.png`,
     email: `mailto:${profile.email}`,
     telephone: profile.phone,
     address: {
