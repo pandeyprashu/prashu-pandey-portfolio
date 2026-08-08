@@ -1,9 +1,13 @@
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { SiteHeader } from "@/components/layout/site-header";
+import { Hero } from "@/components/sections/hero";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="grid min-h-dvh place-items-center">
-      <ThemeToggle />
-    </main>
+    <>
+      <SiteHeader />
+      <main id="main">
+        <Hero />
+      </main>
+    </>
   );
 }
