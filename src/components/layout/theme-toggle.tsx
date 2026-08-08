@@ -1,52 +1,45 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * Light/dark switch.
+ *
+ * Both icons are always rendered and swapped with CSS off the `dark` class,
+ * rather than picking one from `resolvedTheme` during render. The theme is
+ * unknowable on the server, so deriving markup from it would either cause a
+ * hydration mismatch or force a mounted-flag that leaves the button visibly
+ * empty on first paint. Doing it in CSS means the correct icon is there in the
+ * very first frame, before React has hydrated.
+ */
 export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // The server cannot know the stored theme, so the icon only renders once
-  // we're on the client. Until then we keep the same box to avoid layout shift.
-  useEffect(() => setMounted(true), []);
-
-  const isDark = resolvedTheme === "dark";
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      aria-label="Toggle light and dark theme"
       className={cn(
-        "relative grid size-9 place-items-center rounded-full border border-border",
+        "relative grid size-9 place-items-center overflow-hidden rounded-full border border-border",
         "bg-surface/60 text-foreground-muted backdrop-blur",
         "transition-colors hover:border-border-strong hover:text-foreground",
         className,
       )}
     >
-      <AnimatePresence initial={false} mode="wait">
-        {mounted ? (
-          <motion.span
-            key={isDark ? "moon" : "sun"}
-            initial={{ opacity: 0, rotate: -70, scale: 0.6 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, rotate: 70, scale: 0.6 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute inset-0 grid place-items-center"
-          >
-            {isDark ? (
-              <Moon className="size-[1.05rem]" strokeWidth={1.8} />
-            ) : (
-              <Sun className="size-[1.05rem]" strokeWidth={1.8} />
-            )}
-          </motion.span>
-        ) : null}
-      </AnimatePresence>
+      <Sun
+        aria-hidden
+        strokeWidth={1.8}
+        className="absolute size-[1.05rem] rotate-0 scale-100 opacity-100 transition-all duration-300 dark:-rotate-90 dark:scale-50 dark:opacity-0"
+      />
+      <Moon
+        aria-hidden
+        strokeWidth={1.8}
+        className="absolute size-[1.05rem] rotate-90 scale-50 opacity-0 transition-all duration-300 dark:rotate-0 dark:scale-100 dark:opacity-100"
+      />
     </button>
   );
 }
