@@ -24,7 +24,7 @@ export function Section({ id, children, className }: SectionProps) {
 
 type SectionHeadingProps = {
   id: string;
-  /** Small monospace label rendered above the title, e.g. "02 — Experience". */
+  /** Small monospace label rendered above the title, e.g. "02 / Experience". */
   eyebrow: string;
   title: string;
   description?: string;

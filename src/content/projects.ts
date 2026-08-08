@@ -6,7 +6,7 @@ export const projects: Project[] = [
     name: "Dazzl",
     tagline: "On-demand beauty & grooming services platform",
     summary:
-      "Three mobile apps, an 81-page admin console and a 232-model backend. I built features across all six codebases — from the Prisma schema and payment webhooks through to the screens customers and partners actually tap.",
+      "Three mobile apps, an 81-page admin console and a 232-model backend. I built features across all six codebases, from the Prisma schema and payment webhooks through to the screens customers and partners actually tap.",
     metrics: [
       { value: "3", label: "apps live on iOS & Android" },
       { value: "81", label: "page admin console" },

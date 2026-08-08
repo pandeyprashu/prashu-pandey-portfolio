@@ -4,10 +4,10 @@ export const experiences: Experience[] = [
   {
     company: "RemoteState",
     role: "Full Stack Developer",
-    period: "Feb 2025 — Present",
+    period: "Feb 2025 – Present",
     location: "Noida, India",
     summary:
-      "Own end-to-end delivery across 3 products and 6 codebases — 3 React Native apps live on the App Store and Google Play, 2 Next.js web platforms, and a TypeScript/Express backend — from database schema through release.",
+      "Own end-to-end delivery across 3 products and 6 codebases: 3 React Native apps live on the App Store and Google Play, 2 Next.js web platforms, and a TypeScript/Express backend, all the way from database schema through to release.",
     highlights: [
       "Thread single capabilities through Prisma models, REST/tRPC APIs, admin console and mobile UI in one cycle, working directly with founders and product owners.",
       "Enforce end-to-end type safety with TypeScript strict mode, Zod-validated contracts and tRPC/Prisma-generated types, eliminating an entire class of runtime API mismatches.",

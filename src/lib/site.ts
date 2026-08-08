@@ -25,11 +25,11 @@ export const siteUrl = resolveSiteUrl();
 
 export const siteConfig = {
   url: siteUrl,
-  name: `${profile.name} — ${profile.role}`,
+  name: `${profile.name} | ${profile.role}`,
   shortName: profile.name,
-  title: `${profile.name} — ${profile.role}`,
+  title: `${profile.name} | ${profile.role}`,
   description:
-    "Full Stack Developer building production web and mobile products in TypeScript — React, Next.js, React Native, Node.js, Prisma and PostgreSQL. Available for full-time roles and freelance projects.",
+    "Full Stack Developer building production web and mobile products in TypeScript with React, Next.js, React Native, Node.js, Prisma and PostgreSQL. Available for full-time roles and freelance projects.",
   keywords: [
     "Prashu Pandey",
     "Full Stack Developer",

@@ -31,7 +31,7 @@ export function Contact() {
           </h2>
 
           <p className="mt-5 text-base leading-relaxed text-foreground-muted sm:text-lg">
-            I&rsquo;m open to full-time roles and freelance projects — whether
+            I&rsquo;m open to full-time roles and freelance projects, whether
             that&rsquo;s owning a product end to end or joining a team that needs
             someone comfortable across the whole stack. Happy to talk through
             what you&rsquo;re building.

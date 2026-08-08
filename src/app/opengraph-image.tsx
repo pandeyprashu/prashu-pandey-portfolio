@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import { profile } from "@/content";
 
-export const alt = `${profile.name} — ${profile.role}`;
+export const alt = `${profile.name}, ${profile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -112,7 +112,7 @@ export default function OpengraphImage() {
               lineHeight: 1.45,
             }}
           >
-            Production web and mobile products in TypeScript — 3 apps live on
+            Production web and mobile products in TypeScript. 3 apps live on
             the App Store and Google Play.
           </div>
         </div>

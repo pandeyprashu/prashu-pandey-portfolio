@@ -10,7 +10,7 @@ export function Skills() {
         id="skills"
         eyebrow="04 / Toolkit"
         title="What I reach for."
-        description="Grouped by where it sits in the stack rather than by how well I know it — everything listed here is something I've shipped with."
+        description="Grouped by where it sits in the stack rather than by how well I know it. Everything listed here is something I've shipped with."
       />
 
       <RevealGroup className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
