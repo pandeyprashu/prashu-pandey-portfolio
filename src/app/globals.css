@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Keyframes and data-* variants the shadcn registry components style against. */
+@import "shadcn/tailwind.css";
 
 /* next-themes writes `class="dark"` onto <html>, so drive the variant off it. */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -6,9 +8,20 @@
 /*
  * Theme tokens.
  *
- * Every colour is declared as a plain CSS variable here and re-exported to
- * Tailwind through `@theme inline` below. That indirection is what lets a
- * single `.dark` class swap the whole palette without duplicating utilities.
+ * Two families live here:
+ *
+ *   - the shadcn/ui contract (--background, --primary, --muted, --accent …),
+ *     which every registry component styles itself from. Those names are
+ *     fixed; the values are ours.
+ *   - our own additions (--brand, --surface, --foreground-muted …) for the
+ *     things shadcn has no opinion about.
+ *
+ * Note that shadcn's `--accent` means "subtle hover surface", not a brand
+ * colour. Ours is the amber, so it is called `--brand` to keep the two apart —
+ * naming it `--accent` would silently restyle every registry component.
+ *
+ * Everything is a plain CSS variable re-exported to Tailwind via `@theme
+ * inline` below, so one `.dark` class on <html> repaints the whole site.
  */
 :root {
   /*
@@ -17,77 +30,136 @@
    * borders separate from the background without heavier strokes.
    */
   --background: #edebe6;
+  --foreground: #1a1713;
+
+  --card: #f7f6f2;
+  --card-foreground: #1a1713;
+  --popover: #f7f6f2;
+  --popover-foreground: #1a1713;
+
+  --primary: #e08c1a;
+  --primary-foreground: #17120a;
+  --secondary: #f7f6f2;
+  --secondary-foreground: #1a1713;
+
+  --muted: #e3e0d8;
+  --muted-foreground: #55504a;
+  --accent: #e3e0d8;
+  --accent-foreground: #1a1713;
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: #d7d2c7;
+  --input: #d7d2c7;
+  --ring: #945005;
+
+  /*
+   * Two ambers on purpose. `--brand` carries text, so it is darkened until it
+   * clears 4.5:1 on both the background and the card surface. `--brand-solid`
+   * only ever fills shapes, so it stays saturated. Text on that fill is
+   * near-black: white on amber is 2.65:1 and fails.
+   */
+  --brand: #945005;
+  --brand-solid: #e08c1a;
+  --brand-foreground: #17120a;
+  --brand-wash: rgb(224 140 26 / 0.13);
+
   --background-subtle: #e3e0d8;
   --surface: #f7f6f2;
   --surface-raised: #fdfcfa;
-
-  --foreground: #1a1713;
   --foreground-muted: #55504a;
   --foreground-subtle: #6b655d;
-
-  --border: #d7d2c7;
   --border-strong: #c1baac;
 
-  /*
-   * Two ambers on purpose. `accent` is the one that carries text, so it is
-   * darkened until it clears 4.5:1 on both the background and the card
-   * surface; `accent-vivid` only ever fills shapes, so it stays saturated.
-   * Text on that fill is near-black — white on amber is 2.65:1 and fails.
-   */
-  --accent: #945005;
-  --accent-vivid: #e08c1a;
-  --accent-contrast: #17120a;
-  --accent-wash: rgb(224 140 26 / 0.13);
-
-  --ring: #c8801f;
   --shadow-color: 32 26 18;
+  --radius: 0.625rem;
 }
 
 .dark {
   --background: #0a0a0b;
+  --foreground: #f6f3ee;
+
+  --card: #121214;
+  --card-foreground: #f6f3ee;
+  --popover: #121214;
+  --popover-foreground: #f6f3ee;
+
+  --primary: #f0ae3c;
+  --primary-foreground: #17120a;
+  --secondary: #17171a;
+  --secondary-foreground: #f6f3ee;
+
+  --muted: #0f0f11;
+  --muted-foreground: #a09a90;
+  --accent: #17171a;
+  --accent-foreground: #f6f3ee;
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: #24242a;
+  --input: #24242a;
+  --ring: #f0ae3c;
+
+  --brand: #f0ae3c;
+  --brand-solid: #f0ae3c;
+  --brand-foreground: #17120a;
+  --brand-wash: rgb(240 174 60 / 0.12);
+
   --background-subtle: #0f0f11;
   --surface: #121214;
   --surface-raised: #17171a;
-
-  --foreground: #f6f3ee;
   --foreground-muted: #a09a90;
   --foreground-subtle: #847d74;
-
-  --border: #24242a;
   --border-strong: #34343c;
 
-  --accent: #f0ae3c;
-  --accent-vivid: #f0ae3c;
-  --accent-contrast: #17120a;
-  --accent-wash: rgb(240 174 60 / 0.12);
-
-  --ring: #f0ae3c;
   --shadow-color: 0 0 0;
 }
 
 @theme inline {
+  /* shadcn/ui contract */
   --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Ours */
+  --color-brand: var(--brand);
+  --color-brand-solid: var(--brand-solid);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-wash: var(--brand-wash);
   --color-background-subtle: var(--background-subtle);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
-
-  --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
   --color-foreground-subtle: var(--foreground-subtle);
-
-  --color-border: var(--border);
   --color-border-strong: var(--border-strong);
-
-  --color-accent: var(--accent);
-  --color-accent-vivid: var(--accent-vivid);
-  --color-accent-contrast: var(--accent-contrast);
-  --color-accent-wash: var(--accent-wash);
-
-  --color-ring: var(--ring);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 
   /* Wider than the Tailwind default so the grid can breathe on large displays. */
   --container-content: 72rem;
@@ -95,7 +167,7 @@
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    @apply border-border outline-ring/50;
   }
 
   html {
@@ -106,18 +178,16 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    @apply bg-background text-foreground font-sans;
   }
 
   ::selection {
-    background-color: var(--accent-vivid);
-    color: var(--accent-contrast);
+    background-color: var(--brand-solid);
+    color: var(--brand-foreground);
   }
 
   :focus-visible {
@@ -179,14 +249,4 @@
       transparent
     );
   }
-}
-
-@utility text-gradient {
-  background-image: linear-gradient(
-    115deg,
-    var(--color-foreground) 20%,
-    var(--color-foreground-muted) 100%
-  );
-  background-clip: text;
-  color: transparent;
 }

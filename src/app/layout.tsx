@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Inter, Instrument_Serif, JetBrains_Mono, Geist } from "next/font/google";
 
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { profile } from "@/content";
 import { siteConfig, siteUrl } from "@/lib/site";
 
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,12 +80,12 @@ export default function RootLayout({
       // next-themes swaps the class on <html> before paint; React would
       // otherwise flag the injected attribute as a hydration mismatch.
       suppressHydrationWarning
-      className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+      className={cn(inter.variable, instrumentSerif.variable, jetbrainsMono.variable, "font-sans", geist.variable)}
     >
       <body className="antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-accent-vivid focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-accent-contrast"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-brand-solid focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-brand-foreground"
         >
           Skip to content
         </a>

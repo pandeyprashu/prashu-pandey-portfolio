@@ -5,7 +5,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { buttonStyles } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { navItems, profile } from "@/content";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { EASE_OUT } from "@/lib/motion";
@@ -41,7 +41,7 @@ export function SiteHeader() {
         >
           <span
             aria-hidden
-            className="grid size-8 place-items-center rounded-lg border border-border bg-surface font-mono text-xs text-accent transition-colors group-hover:border-accent/40"
+            className="grid size-8 place-items-center rounded-lg border border-border bg-surface font-mono text-xs text-brand transition-colors group-hover:border-brand/40"
           >
             PP
           </span>
@@ -81,36 +81,39 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <a
-            href={profile.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonStyles({
-              variant: "secondary",
-              size: "sm",
-              className: "hidden sm:inline-flex",
-            })}
+          <Button
+            variant="outline"
+            size="pill"
+            className="hidden sm:inline-flex"
+            render={
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
           >
             Resume
             <ArrowUpRight
-              className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="size-3.5 transition-transform group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5"
               strokeWidth={2}
             />
-          </a>
-          <button
-            type="button"
+          </Button>
+          <Button
+            variant="outline"
+            size="pill-icon"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="grid size-9 place-items-center rounded-full border border-border bg-surface/60 text-foreground-muted transition-colors hover:text-foreground md:hidden"
+            className="md:hidden"
           >
             {menuOpen ? (
               <X className="size-4" strokeWidth={1.8} />
             ) : (
               <Menu className="size-4" strokeWidth={1.8} />
             )}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -134,7 +137,7 @@ export function SiteHeader() {
                     className={cn(
                       "block border-b border-border/60 py-3.5 text-sm transition-colors last:border-0",
                       activeId === item.id
-                        ? "text-accent"
+                        ? "text-brand"
                         : "text-foreground-muted hover:text-foreground",
                     )}
                   >
@@ -143,15 +146,21 @@ export function SiteHeader() {
                 </li>
               ))}
               <li className="pt-3">
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonStyles({ variant: "secondary", size: "sm", className: "w-full" })}
+                <Button
+                  variant="outline"
+                  size="pill"
+                  className="w-full"
+                  render={
+                    <a
+                      href={profile.resumeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  }
                 >
                   Download résumé
                   <ArrowUpRight className="size-3.5" strokeWidth={2} />
-                </a>
+                </Button>
               </li>
             </ul>
           </motion.nav>

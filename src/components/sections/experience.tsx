@@ -21,7 +21,7 @@ export function Experience() {
                 <div className="flex items-center gap-3">
                   <span
                     aria-hidden
-                    className="size-2 shrink-0 rounded-full bg-accent-vivid ring-4 ring-accent-wash"
+                    className="size-2 shrink-0 rounded-full bg-brand-solid ring-4 ring-brand-wash"
                   />
                   <h3 className="text-xl font-semibold">{role.company}</h3>
                 </div>
@@ -48,7 +48,7 @@ export function Experience() {
                     >
                       <span
                         aria-hidden
-                        className="mt-2 size-1 shrink-0 rounded-full bg-accent"
+                        className="mt-2 size-1 shrink-0 rounded-full bg-brand"
                       />
                       {highlight}
                     </RevealItem>
@@ -58,7 +58,7 @@ export function Experience() {
                 <ul className="mt-7 flex flex-wrap gap-2">
                   {role.stack.map((tech) => (
                     <li key={tech}>
-                      <Badge>{tech}</Badge>
+                      <Badge variant="tech">{tech}</Badge>
                     </li>
                   ))}
                 </ul>

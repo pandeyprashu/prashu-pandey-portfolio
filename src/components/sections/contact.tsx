@@ -1,6 +1,6 @@
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 
-import { buttonStyles } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { CopyButton } from "@/components/ui/copy-button";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
@@ -15,19 +15,19 @@ export function Contact() {
           className="pointer-events-none absolute inset-0 -z-10"
         >
           <div className="bg-dot-grid absolute inset-0 opacity-50 [mask-image:radial-gradient(ellipse_70%_70%_at_50%_0%,black,transparent)]" />
-          <div className="absolute -top-24 left-1/2 size-96 -translate-x-1/2 rounded-full bg-accent-vivid/10 blur-[100px]" />
+          <div className="absolute -top-24 left-1/2 size-96 -translate-x-1/2 rounded-full bg-brand-solid/10 blur-[100px]" />
         </div>
 
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="flex items-center justify-center gap-3 font-mono text-xs tracking-[0.18em] text-accent uppercase">
-            <span aria-hidden className="h-px w-6 bg-accent/50" />
+          <p className="flex items-center justify-center gap-3 font-mono text-xs tracking-[0.18em] text-brand uppercase">
+            <span aria-hidden className="h-px w-6 bg-brand/50" />
             05 / Contact
-            <span aria-hidden className="h-px w-6 bg-accent/50" />
+            <span aria-hidden className="h-px w-6 bg-brand/50" />
           </p>
 
           <h2 id="contact-heading" className="mt-6 text-3xl font-semibold sm:text-5xl">
             Let&rsquo;s build something{" "}
-            <span className="font-serif italic text-accent">good</span>.
+            <span className="font-serif italic text-brand">good</span>.
           </h2>
 
           <p className="mt-5 text-base leading-relaxed text-foreground-muted sm:text-lg">
@@ -38,22 +38,30 @@ export function Contact() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a href={`mailto:${profile.email}`} className={buttonStyles()}>
+            <Button
+              size="hero"
+              render={<a href={`mailto:${profile.email}`} />}
+            >
               <Mail className="size-4" strokeWidth={2} />
               Email me
-            </a>
-            <a
-              href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonStyles({ variant: "secondary" })}
+            </Button>
+            <Button
+              variant="outline"
+              size="hero"
+              render={
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
             >
               Download résumé
               <ArrowUpRight
-                className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="size-4 transition-transform group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5"
                 strokeWidth={2}
               />
-            </a>
+            </Button>
           </div>
         </Reveal>
 
@@ -92,7 +100,7 @@ function ContactRow({
 }) {
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 px-4 py-3 text-left">
-      <span aria-hidden className="text-accent">
+      <span aria-hidden className="text-brand">
         {icon}
       </span>
       <div className="min-w-0 flex-1">
@@ -101,7 +109,7 @@ function ContactRow({
         </p>
         <a
           href={href}
-          className="block truncate text-sm transition-colors hover:text-accent"
+          className="block truncate text-sm transition-colors hover:text-brand"
         >
           {value}
         </a>

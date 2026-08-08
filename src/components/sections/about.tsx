@@ -1,5 +1,6 @@
 import { GraduationCap } from "lucide-react";
 
+import { Badge } from "@/components/ui/badge";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { education, profile } from "@/content";
@@ -48,9 +49,9 @@ export function About() {
                       {entry.institution}
                     </p>
                   </div>
-                  <span className="shrink-0 rounded-full border border-accent/25 bg-accent-wash px-2.5 py-1 font-mono text-[0.7rem] text-accent">
+                  <Badge variant="brand" className="shrink-0">
                     {entry.grade}
-                  </span>
+                  </Badge>
                 </div>
                 <p className="mt-3 font-mono text-xs text-foreground-subtle">
                   {entry.period}

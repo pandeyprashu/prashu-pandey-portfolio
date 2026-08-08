@@ -3,6 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 /**
@@ -19,16 +20,12 @@ export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <button
-      type="button"
+    <Button
+      variant="outline"
+      size="pill-icon"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label="Toggle light and dark theme"
-      className={cn(
-        "relative grid size-9 place-items-center overflow-hidden rounded-full border border-border",
-        "bg-surface/60 text-foreground-muted backdrop-blur",
-        "transition-colors hover:border-border-strong hover:text-foreground",
-        className,
-      )}
+      className={cn("relative overflow-hidden text-foreground-muted", className)}
     >
       <Sun
         aria-hidden
@@ -40,6 +37,6 @@ export function ThemeToggle({ className }: { className?: string }) {
         strokeWidth={1.8}
         className="absolute size-[1.05rem] rotate-90 scale-50 opacity-0 transition-all duration-300 dark:rotate-0 dark:scale-100 dark:opacity-100"
       />
-    </button>
+    </Button>
   );
 }

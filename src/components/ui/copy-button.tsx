@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { Button } from "@/components/ui/button";
 import { EASE_OUT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -36,15 +37,12 @@ export function CopyButton({
   }
 
   return (
-    <button
-      type="button"
+    <Button
+      variant="outline"
+      size="pill-icon"
       onClick={handleCopy}
       aria-label={copied ? `${label} copied` : `Copy ${label}`}
-      className={cn(
-        "grid size-9 shrink-0 place-items-center rounded-full border border-border",
-        "text-foreground-muted transition-colors hover:border-border-strong hover:text-foreground",
-        className,
-      )}
+      className={cn("shrink-0 text-foreground-muted", className)}
     >
       <AnimatePresence initial={false} mode="wait">
         <motion.span
@@ -55,7 +53,7 @@ export function CopyButton({
           transition={{ duration: 0.15, ease: EASE_OUT }}
         >
           {copied ? (
-            <Check className="size-4 text-accent" strokeWidth={2} />
+            <Check className="size-4 text-brand" strokeWidth={2} />
           ) : (
             <Copy className="size-4" strokeWidth={1.8} />
           )}
@@ -64,6 +62,6 @@ export function CopyButton({
       <span aria-live="polite" className="sr-only">
         {copied ? `${label} copied to clipboard` : ""}
       </span>
-    </button>
+    </Button>
   );
 }

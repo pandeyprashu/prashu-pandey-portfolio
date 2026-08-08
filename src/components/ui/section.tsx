@@ -40,8 +40,8 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <Reveal className={cn("max-w-2xl", className)}>
-      <p className="flex items-center gap-3 font-mono text-xs tracking-[0.18em] text-accent uppercase">
-        <span aria-hidden className="h-px w-6 bg-accent/50" />
+      <p className="flex items-center gap-3 font-mono text-xs tracking-[0.18em] text-brand uppercase">
+        <span aria-hidden className="h-px w-6 bg-brand/50" />
         {eyebrow}
       </p>
       <h2

@@ -13,7 +13,7 @@ export function SiteFooter() {
             <p className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
               <span
                 aria-hidden
-                className="grid size-8 place-items-center rounded-lg border border-border bg-surface font-mono text-xs text-accent"
+                className="grid size-8 place-items-center rounded-lg border border-border bg-surface font-mono text-xs text-brand"
               >
                 PP
               </span>

@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 
-import { buttonStyles } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { experiences, profile } from "@/content";
 import { EASE_OUT } from "@/lib/motion";
 
@@ -45,10 +45,10 @@ export function Hero() {
       id="top"
       className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
     >
-      {/* Backdrop: dot grid faded out at the edges, warmed by an accent glow. */}
+      {/* Backdrop: dot grid faded out at the edges, warmed by an brand glow. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="bg-dot-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_75%_60%_at_50%_0%,black,transparent)]" />
-        <div className="absolute -top-32 left-1/2 size-[38rem] -translate-x-1/2 rounded-full bg-accent-vivid/10 blur-[120px]" />
+        <div className="absolute -top-32 left-1/2 size-[38rem] -translate-x-1/2 rounded-full bg-brand-solid/10 blur-[120px]" />
       </div>
 
       <div className="mx-auto w-full max-w-content px-6 lg:px-8">
@@ -65,8 +65,8 @@ export function Hero() {
               className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 py-1.5 pr-4 pl-2.5 text-xs text-foreground-muted backdrop-blur"
             >
               <span aria-hidden className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-vivid opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-accent-vivid" />
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-solid opacity-60" />
+                <span className="relative inline-flex size-2 rounded-full bg-brand-solid" />
               </span>
               {profile.availability}
             </motion.p>
@@ -80,7 +80,7 @@ export function Hero() {
               {/* JSX drops the newline here, so the h1's text content would
                   otherwise read "Prashu PandeyFull stack developer". */}{" "}
               <span className="mt-3 block font-serif text-2xl font-normal italic sm:text-3xl lg:text-4xl">
-                <span className="text-accent">Full stack</span>{" "}
+                <span className="text-brand">Full stack</span>{" "}
                 <span className="text-foreground-muted">developer</span>
               </span>
             </motion.h1>
@@ -98,20 +98,24 @@ export function Hero() {
               transition={{ duration: 0.6, ease: EASE_OUT }}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
-              <a href="#contact" className={buttonStyles()}>
+              <Button size="hero" render={<a href="#contact" />}>
                 Get in touch
                 <ArrowUpRight
-                  className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="size-4 transition-transform group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5"
                   strokeWidth={2}
                 />
-              </a>
-              <a href="#work" className={buttonStyles({ variant: "secondary" })}>
+              </Button>
+              <Button
+                variant="outline"
+                size="hero"
+                render={<a href="#work" />}
+              >
                 View selected work
                 <ArrowDown
-                  className="size-4 transition-transform group-hover:translate-y-0.5"
+                  className="size-4 transition-transform group-hover/button:translate-y-0.5"
                   strokeWidth={2}
                 />
-              </a>
+              </Button>
             </motion.div>
 
             <motion.dl
@@ -146,7 +150,7 @@ export function Hero() {
             <div className="relative lg:ml-auto lg:max-w-sm">
               <div
                 aria-hidden
-                className="absolute -inset-3 -z-10 rounded-[2rem] bg-accent-vivid/8 blur-2xl"
+                className="absolute -inset-3 -z-10 rounded-[2rem] bg-brand-solid/8 blur-2xl"
               />
               <div className="rounded-3xl border border-border bg-surface/60 p-6 backdrop-blur sm:p-7">
                 <p className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">

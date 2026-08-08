@@ -23,7 +23,7 @@ export function Skills() {
             <ul className="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <li key={item}>
-                  <Badge>{item}</Badge>
+                  <Badge variant="tech">{item}</Badge>
                 </li>
               ))}
             </ul>

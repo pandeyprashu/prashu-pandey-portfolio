@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { useId, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import type { Project } from "@/content";
 import { EASE_OUT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -30,11 +31,11 @@ export function ProjectCard({
       {/* Accent wash that fades in on hover; purely decorative. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-br from-accent-wash to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-br from-brand-wash to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
 
       <header>
-        <span className="font-mono text-xs text-accent">
+        <span className="font-mono text-xs text-brand">
           {String(index + 1).padStart(2, "0")}
         </span>
         <h3 className="mt-2 text-2xl font-semibold sm:text-3xl">
@@ -109,12 +110,13 @@ export function ProjectCard({
                 ) : null}
               </AnimatePresence>
 
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="pill"
                 onClick={() => setExpanded((open) => !open)}
                 aria-expanded={expanded}
                 aria-controls={detailsId}
-                className="mt-5 inline-flex items-center gap-1.5 rounded-full text-sm text-accent transition-colors hover:text-foreground"
+                className="mt-4 -ml-4 text-brand"
               >
                 {expanded
                   ? "Show less"
@@ -127,7 +129,7 @@ export function ProjectCard({
                   )}
                   strokeWidth={2}
                 />
-              </button>
+              </Button>
             </>
           ) : null}
         </div>
@@ -136,7 +138,7 @@ export function ProjectCard({
       <ul className="mt-8 flex flex-wrap gap-2 border-t border-border pt-6">
         {project.stack.map((tech) => (
           <li key={tech}>
-            <Badge>{tech}</Badge>
+            <Badge variant="tech">{tech}</Badge>
           </li>
         ))}
       </ul>
@@ -154,7 +156,7 @@ function Highlight({
 }) {
   return (
     <li className="flex gap-3 text-sm leading-relaxed text-foreground-muted">
-      <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-accent" />
+      <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-brand" />
       <span className={cn(clamped && "line-clamp-2")}>{children}</span>
     </li>
   );
