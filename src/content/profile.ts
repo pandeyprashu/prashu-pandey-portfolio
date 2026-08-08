@@ -23,8 +23,8 @@ export const profile: Profile = {
     },
     {
       label: "LinkedIn",
-      href: "https://linkedin.com/in/prashupandey",
-      handle: "in/prashupandey",
+      href: "https://www.linkedin.com/in/prashu-pandey-8474a2225/",
+      handle: "in/prashu-pandey",
     },
   ],
 };
