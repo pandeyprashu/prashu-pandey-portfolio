@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   // Matches the two theme backgrounds so mobile browser chrome blends in.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbfaf8" },
+    { media: "(prefers-color-scheme: light)", color: "#edebe6" },
     { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
   ],
 };

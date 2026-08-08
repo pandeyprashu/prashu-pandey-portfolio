@@ -11,23 +11,33 @@
  * single `.dark` class swap the whole palette without duplicating utilities.
  */
 :root {
-  --background: #fbfaf8;
-  --background-subtle: #f4f2ee;
-  --surface: #ffffff;
-  --surface-raised: #ffffff;
+  /*
+   * Warm paper grey rather than white. A pure-white page next to a near-black
+   * dark theme reads as blown out, and the greyer base also lets cards and
+   * borders separate from the background without heavier strokes.
+   */
+  --background: #edebe6;
+  --background-subtle: #e3e0d8;
+  --surface: #f7f6f2;
+  --surface-raised: #fdfcfa;
 
-  --foreground: #16130f;
-  --foreground-muted: #5f594f;
-  --foreground-subtle: #8a8378;
+  --foreground: #1a1713;
+  --foreground-muted: #55504a;
+  --foreground-subtle: #6b655d;
 
-  --border: #e5e0d7;
-  --border-strong: #d3ccbf;
+  --border: #d7d2c7;
+  --border-strong: #c1baac;
 
-  /* Readable on light surfaces — the decorative variant stays vivid. */
-  --accent: #a55a06;
+  /*
+   * Two ambers on purpose. `accent` is the one that carries text, so it is
+   * darkened until it clears 4.5:1 on both the background and the card
+   * surface; `accent-vivid` only ever fills shapes, so it stays saturated.
+   * Text on that fill is near-black — white on amber is 2.65:1 and fails.
+   */
+  --accent: #945005;
   --accent-vivid: #e08c1a;
-  --accent-contrast: #ffffff;
-  --accent-wash: rgb(224 140 26 / 0.11);
+  --accent-contrast: #17120a;
+  --accent-wash: rgb(224 140 26 / 0.13);
 
   --ring: #c8801f;
   --shadow-color: 32 26 18;
@@ -41,7 +51,7 @@
 
   --foreground: #f6f3ee;
   --foreground-muted: #a09a90;
-  --foreground-subtle: #6f6a62;
+  --foreground-subtle: #847d74;
 
   --border: #24242a;
   --border-strong: #34343c;
