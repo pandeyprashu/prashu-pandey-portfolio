@@ -1,26 +1,182 @@
 @import "tailwindcss";
 
+/* next-themes writes `class="dark"` onto <html>, so drive the variant off it. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Theme tokens.
+ *
+ * Every colour is declared as a plain CSS variable here and re-exported to
+ * Tailwind through `@theme inline` below. That indirection is what lets a
+ * single `.dark` class swap the whole palette without duplicating utilities.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfaf8;
+  --background-subtle: #f4f2ee;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+
+  --foreground: #16130f;
+  --foreground-muted: #5f594f;
+  --foreground-subtle: #8a8378;
+
+  --border: #e5e0d7;
+  --border-strong: #d3ccbf;
+
+  /* Readable on light surfaces — the decorative variant stays vivid. */
+  --accent: #a55a06;
+  --accent-vivid: #e08c1a;
+  --accent-contrast: #ffffff;
+  --accent-wash: rgb(224 140 26 / 0.11);
+
+  --ring: #c8801f;
+  --shadow-color: 32 26 18;
+}
+
+.dark {
+  --background: #0a0a0b;
+  --background-subtle: #0f0f11;
+  --surface: #121214;
+  --surface-raised: #17171a;
+
+  --foreground: #f6f3ee;
+  --foreground-muted: #a09a90;
+  --foreground-subtle: #6f6a62;
+
+  --border: #24242a;
+  --border-strong: #34343c;
+
+  --accent: #f0ae3c;
+  --accent-vivid: #f0ae3c;
+  --accent-contrast: #17120a;
+  --accent-wash: rgb(240 174 60 / 0.12);
+
+  --ring: #f0ae3c;
+  --shadow-color: 0 0 0;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-subtle: var(--background-subtle);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-vivid: var(--accent-vivid);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-accent-wash: var(--accent-wash);
+
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Wider than the Tailwind default so the grid can breathe on large displays. */
+  --container-content: 72rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keeps anchored sections clear of the fixed header. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--accent-vivid);
+    color: var(--accent-contrast);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Headings carry tighter tracking than Inter's default at display sizes. */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /*
+   * Faint dot grid used behind the hero. Sized in a variable so sections can
+   * scale it without redefining the gradient.
+   */
+  .bg-dot-grid {
+    --dot-size: 1px;
+    --dot-gap: 26px;
+    background-image: radial-gradient(
+      circle at center,
+      var(--border-strong) var(--dot-size),
+      transparent var(--dot-size)
+    );
+    background-size: var(--dot-gap) var(--dot-gap);
+  }
+
+  /* Gradient rule that fades out at both ends, used as a section divider. */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border-strong),
+      transparent
+    );
+  }
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    115deg,
+    var(--color-foreground) 20%,
+    var(--color-foreground-muted) 100%
+  );
+  background-clip: text;
+  color: transparent;
 }
