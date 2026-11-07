@@ -20,9 +20,9 @@ const badgeVariants = cva(
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         link: "text-primary underline-offset-4 hover:underline",
         // Added for this site: monospace chip used for tech-stack lists.
-        tech: "h-auto border-border bg-background-subtle px-2.5 py-1 font-mono text-[0.7rem] leading-none tracking-tight text-foreground-muted",
+        tech: "h-auto rounded-md border-border bg-background-subtle px-2.5 py-1.5 font-mono text-[0.7rem] leading-none tracking-tight text-foreground-muted",
         // Added for this site: the amber, for grades and status markers.
-        brand: "h-auto border-brand/25 bg-brand-wash px-2.5 py-1 font-mono text-[0.7rem] leading-none tracking-tight text-brand",
+        brand: "h-auto rounded-md border-brand/25 bg-brand-wash px-2.5 py-1.5 font-mono text-[0.7rem] leading-none tracking-tight text-brand",
       },
     },
     defaultVariants: {
