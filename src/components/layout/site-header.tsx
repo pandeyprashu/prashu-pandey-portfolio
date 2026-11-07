@@ -34,14 +34,14 @@ export function SiteHeader() {
           : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between gap-4 px-6 lg:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="#top"
-          className="group flex items-center gap-2.5 text-sm font-semibold tracking-tight"
+          className="group flex min-h-11 items-center gap-2.5 font-mono text-sm font-semibold tracking-tight"
         >
           <span
             aria-hidden
-            className="grid size-8 place-items-center rounded-lg border border-border bg-surface font-mono text-xs text-brand transition-colors group-hover:border-brand/40"
+            className="grid size-9 place-items-center rounded-lg border border-border bg-surface font-mono text-xs font-bold text-brand transition-colors group-hover:border-brand-solid/50"
           >
             PP
           </span>
@@ -58,7 +58,7 @@ export function SiteHeader() {
                     href={`#${item.id}`}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "relative block rounded-full px-3.5 py-2 text-sm transition-colors",
+                      "relative block rounded-lg px-3.5 py-2 font-mono text-sm transition-colors",
                       isActive
                         ? "text-foreground"
                         : "text-foreground-muted hover:text-foreground",
@@ -67,7 +67,7 @@ export function SiteHeader() {
                     {isActive ? (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 -z-10 rounded-full bg-background-subtle"
+                        className="absolute inset-0 -z-10 rounded-lg bg-background-subtle ring-1 ring-border"
                         transition={{ duration: 0.3, ease: EASE_OUT }}
                       />
                     ) : null}
@@ -128,14 +128,14 @@ export function SiteHeader() {
             transition={{ duration: 0.28, ease: EASE_OUT }}
             className="overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl md:hidden"
           >
-            <ul className="mx-auto flex w-full max-w-content flex-col px-6 py-3">
+            <ul className="mx-auto flex w-full max-w-content flex-col px-4 py-3 sm:px-6">
               {navItems.map((item) => (
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
-                      "block border-b border-border/60 py-3.5 text-sm transition-colors last:border-0",
+                      "block border-b border-border/60 py-3.5 font-mono text-sm transition-colors last:border-0",
                       activeId === item.id
                         ? "text-brand"
                         : "text-foreground-muted hover:text-foreground",

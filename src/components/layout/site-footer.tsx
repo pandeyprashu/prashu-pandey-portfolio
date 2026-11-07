@@ -7,36 +7,36 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto w-full max-w-content px-6 py-14 lg:px-8">
+      <div className="mx-auto flex w-full max-w-content flex-col gap-14 px-4 py-14 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
-          <div className="max-w-xs">
-            <p className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
+          <div className="flex max-w-xs flex-col gap-4">
+            <p className="flex items-center gap-2.5 font-mono text-sm font-semibold tracking-tight">
               <span
                 aria-hidden
-                className="grid size-8 place-items-center rounded-lg border border-border bg-surface font-mono text-xs text-brand"
+                className="grid size-9 place-items-center rounded-lg border border-border bg-surface font-mono text-xs font-bold text-brand"
               >
                 PP
               </span>
               {profile.name}
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground-muted">
+            <p className="text-sm leading-relaxed text-foreground-muted">
               {profile.role} based in {profile.location}. {profile.availability}.
             </p>
           </div>
 
           <div className="flex gap-14 sm:gap-20">
-            <nav aria-label="Footer">
+            <nav aria-label="Footer" className="flex flex-col gap-4">
               {/* Plain text, not a heading: these are column labels and would
                   otherwise sit alongside real sections in the document outline. */}
-              <p className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
-                Navigate
+              <p className="font-mono text-xs text-foreground-subtle">
+                navigate
               </p>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="flex flex-col">
                 {navItems.map((item) => (
                   <li key={item.id}>
                     <a
                       href={`#${item.id}`}
-                      className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                      className="flex min-h-11 items-center text-sm text-foreground-muted transition-colors hover:text-foreground"
                     >
                       {item.label}
                     </a>
@@ -45,18 +45,18 @@ export function SiteFooter() {
               </ul>
             </nav>
 
-            <nav aria-label="Profiles and contact">
-              <p className="font-mono text-xs tracking-[0.16em] text-foreground-subtle uppercase">
-                Elsewhere
+            <nav aria-label="Profiles and contact" className="flex flex-col gap-4">
+              <p className="font-mono text-xs text-foreground-subtle">
+                elsewhere
               </p>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="flex flex-col">
                 {profile.socials.map((social) => (
                   <li key={social.label}>
                     <a
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                      className="flex min-h-11 items-center text-sm text-foreground-muted transition-colors hover:text-foreground"
                     >
                       {social.label}
                     </a>
@@ -65,7 +65,7 @@ export function SiteFooter() {
                 <li>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                    className="flex min-h-11 items-center text-sm text-foreground-muted transition-colors hover:text-foreground"
                   >
                     Email
                   </a>
@@ -75,13 +75,13 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse items-start justify-between gap-4 border-t border-border pt-7 sm:flex-row sm:items-center">
+        <div className="flex flex-col-reverse items-start justify-between gap-4 border-t border-border pt-7 sm:flex-row sm:items-center">
           <p className="font-mono text-xs text-foreground-subtle">
             &copy; {year} {profile.name}. Built with Next.js and Tailwind CSS.
           </p>
           <a
             href="#top"
-            className="group inline-flex items-center gap-1.5 font-mono text-xs text-foreground-muted transition-colors hover:text-foreground"
+            className="group inline-flex min-h-11 items-center gap-1.5 font-mono text-xs text-foreground-muted transition-colors hover:text-foreground"
           >
             Back to top
             <ArrowUp

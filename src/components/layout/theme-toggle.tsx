@@ -30,12 +30,12 @@ export function ThemeToggle({ className }: { className?: string }) {
       <Sun
         aria-hidden
         strokeWidth={1.8}
-        className="absolute size-[1.05rem] rotate-0 scale-100 opacity-100 transition-all duration-300 dark:-rotate-90 dark:scale-50 dark:opacity-0"
+        className="absolute size-4.5 rotate-0 scale-100 opacity-100 transition-all duration-300 dark:-rotate-90 dark:scale-50 dark:opacity-0"
       />
       <Moon
         aria-hidden
         strokeWidth={1.8}
-        className="absolute size-[1.05rem] rotate-90 scale-50 opacity-0 transition-all duration-300 dark:rotate-0 dark:scale-100 dark:opacity-100"
+        className="absolute size-4.5 rotate-90 scale-50 opacity-0 transition-all duration-300 dark:rotate-0 dark:scale-100 dark:opacity-100"
       />
     </Button>
   );
