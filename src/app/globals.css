@@ -110,6 +110,29 @@
   --shadow-color: 0 0 0;
 }
 
+@media print {
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --foreground-muted: #334155;
+    --foreground-subtle: #475569;
+    --brand: #1d4ed8;
+    --border: #e2e8f0;
+  }
+
+  html {
+    color-scheme: light !important;
+    background: #ffffff;
+  }
+
+  @page {
+    margin: 18mm 16mm;
+  }
+}
+
 @theme inline {
   /* shadcn/ui contract */
   --color-background: var(--background);
