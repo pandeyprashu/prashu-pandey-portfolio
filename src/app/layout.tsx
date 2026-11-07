@@ -1,32 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono, Geist } from "next/font/google";
+import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { profile } from "@/content";
 import { siteConfig, siteUrl } from "@/lib/site";
-
-import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import "./globals.css";
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-/** Display face, used italic for emphasised words in headings. */
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-sans",
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-jetbrains-mono",
   display: "swap",
 });
@@ -66,8 +57,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   // Matches the two theme backgrounds so mobile browser chrome blends in.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#edebe6" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1120" },
   ],
 };
 
@@ -80,7 +71,7 @@ export default function RootLayout({
       // next-themes swaps the class on <html> before paint; React would
       // otherwise flag the injected attribute as a hydration mismatch.
       suppressHydrationWarning
-      className={cn(inter.variable, instrumentSerif.variable, jetbrainsMono.variable, "font-sans", geist.variable)}
+      className={cn(plexSans.variable, jetbrainsMono.variable, "font-sans")}
     >
       <body className="antialiased">
         <a

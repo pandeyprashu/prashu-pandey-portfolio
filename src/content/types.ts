@@ -72,3 +72,10 @@ export type Education = {
   period: string;
   grade: string;
 };
+
+export type CoverLetter = {
+  greeting: string;
+  paragraphs: string[];
+  closing: string;
+  signOff: string;
+};

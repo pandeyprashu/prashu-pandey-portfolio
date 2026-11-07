@@ -8,12 +8,13 @@ export function Projects() {
     <Section id="work" className="border-t border-border">
       <SectionHeading
         id="work"
-        eyebrow="03 / Selected work"
+        index="03"
+        label="Selected work"
         title="Products I've built end to end."
         description="Three platforms in production. On each one I worked across the full stack: schema, API, admin console and the app people actually use."
       />
 
-      <div className="mt-14 space-y-8">
+      <div className="flex flex-col gap-4">
         {projects.map((project, index) => (
           <Reveal key={project.slug}>
             <ProjectCard project={project} index={index} />
