@@ -17,100 +17,95 @@
  *     things shadcn has no opinion about.
  *
  * Note that shadcn's `--accent` means "subtle hover surface", not a brand
- * colour. Ours is the amber, so it is called `--brand` to keep the two apart —
- * naming it `--accent` would silently restyle every registry component.
+ * colour, so ours is called `--brand` to keep the two apart — naming it
+ * `--accent` would silently restyle every registry component.
  *
  * Everything is a plain CSS variable re-exported to Tailwind via `@theme
  * inline` below, so one `.dark` class on <html> repaints the whole site.
  */
 :root {
-  /*
-   * Warm paper grey rather than white. A pure-white page next to a near-black
-   * dark theme reads as blown out, and the greyer base also lets cards and
-   * borders separate from the background without heavier strokes.
-   */
-  --background: #edebe6;
-  --foreground: #1a1713;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 
-  --card: #f7f6f2;
-  --card-foreground: #1a1713;
-  --popover: #f7f6f2;
-  --popover-foreground: #1a1713;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
 
-  --primary: #e08c1a;
-  --primary-foreground: #17120a;
-  --secondary: #f7f6f2;
-  --secondary-foreground: #1a1713;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
 
-  --muted: #e3e0d8;
-  --muted-foreground: #55504a;
-  --accent: #e3e0d8;
-  --accent-foreground: #1a1713;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
 
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: #dc2626;
 
-  --border: #d7d2c7;
-  --input: #d7d2c7;
-  --ring: #945005;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #1d4ed8;
 
-  /*
-   * Two ambers on purpose. `--brand` carries text, so it is darkened until it
-   * clears 4.5:1 on both the background and the card surface. `--brand-solid`
-   * only ever fills shapes, so it stays saturated. Text on that fill is
-   * near-black: white on amber is 2.65:1 and fails.
-   */
-  --brand: #945005;
-  --brand-solid: #e08c1a;
-  --brand-foreground: #17120a;
-  --brand-wash: rgb(224 140 26 / 0.13);
+  --brand: #1d4ed8;
+  --brand-solid: #2563eb;
+  --brand-foreground: #ffffff;
+  --brand-wash: rgb(37 99 235 / 0.1);
+  --brand-glow: rgb(37 99 235 / 0.2);
+  --success: #16a34a;
+  --warning: #ca8a04;
 
-  --background-subtle: #e3e0d8;
-  --surface: #f7f6f2;
-  --surface-raised: #fdfcfa;
-  --foreground-muted: #55504a;
-  --foreground-subtle: #6b655d;
-  --border-strong: #c1baac;
+  --background-subtle: #f1f5f9;
+  --surface: #ffffff;
+  --surface-raised: #f1f5f9;
+  --foreground-muted: #475569;
+  --foreground-subtle: #56637a;
+  --border-strong: #cbd5e1;
 
-  --shadow-color: 32 26 18;
-  --radius: 0.625rem;
+  --shadow-color: 15 23 42;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: #0a0a0b;
-  --foreground: #f6f3ee;
+  --background: #0b1120;
+  --foreground: #f8fafc;
 
-  --card: #121214;
-  --card-foreground: #f6f3ee;
-  --popover: #121214;
-  --popover-foreground: #f6f3ee;
+  --card: #141c2f;
+  --card-foreground: #f8fafc;
+  --popover: #141c2f;
+  --popover-foreground: #f8fafc;
 
-  --primary: #f0ae3c;
-  --primary-foreground: #17120a;
-  --secondary: #17171a;
-  --secondary-foreground: #f6f3ee;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #1b2336;
+  --secondary-foreground: #f8fafc;
 
-  --muted: #0f0f11;
-  --muted-foreground: #a09a90;
-  --accent: #17171a;
-  --accent-foreground: #f6f3ee;
+  --muted: #1b2336;
+  --muted-foreground: #94a3b8;
+  --accent: #1b2336;
+  --accent-foreground: #f8fafc;
 
-  --destructive: oklch(0.704 0.191 22.216);
+  --destructive: #ef4444;
 
-  --border: #24242a;
-  --input: #24242a;
-  --ring: #f0ae3c;
+  --border: #1f2a40;
+  --input: #273449;
+  --ring: #60a5fa;
 
-  --brand: #f0ae3c;
-  --brand-solid: #f0ae3c;
-  --brand-foreground: #17120a;
-  --brand-wash: rgb(240 174 60 / 0.12);
+  --brand: #60a5fa;
+  --brand-solid: #2563eb;
+  --brand-foreground: #ffffff;
+  --brand-wash: rgb(59 130 246 / 0.12);
+  --brand-glow: rgb(59 130 246 / 0.28);
+  --success: #22c55e;
+  --warning: #eab308;
 
-  --background-subtle: #0f0f11;
-  --surface: #121214;
-  --surface-raised: #17171a;
-  --foreground-muted: #a09a90;
-  --foreground-subtle: #847d74;
-  --border-strong: #34343c;
+  --background-subtle: #111a2c;
+  --surface: #141c2f;
+  --surface-raised: #1b2336;
+  --foreground-muted: #94a3b8;
+  --foreground-subtle: #8492a6;
+  --border-strong: #334155;
 
   --shadow-color: 0 0 0;
 }
@@ -141,6 +136,11 @@
   --color-brand-solid: var(--brand-solid);
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-wash: var(--brand-wash);
+  --color-brand-glow: var(--brand-glow);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+
+  --shadow-glow: 0 0 0 1px var(--brand-wash), 0 12px 40px -16px var(--brand-glow);
   --color-background-subtle: var(--background-subtle);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
@@ -148,10 +148,9 @@
   --color-foreground-subtle: var(--foreground-subtle);
   --color-border-strong: var(--border-strong);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
-  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -196,12 +195,18 @@
     border-radius: 2px;
   }
 
-  /* Headings carry tighter tracking than Inter's default at display sizes. */
   h1,
   h2,
   h3 {
-    letter-spacing: -0.028em;
+    font-family: var(--font-heading);
+    letter-spacing: -0.035em;
     text-wrap: balance;
+  }
+
+  button,
+  [role="button"],
+  a[href] {
+    cursor: pointer;
   }
 
   p {
@@ -224,22 +229,18 @@
 }
 
 @layer components {
-  /*
-   * Faint dot grid used behind the hero. Sized in a variable so sections can
-   * scale it without redefining the gradient.
-   */
-  .bg-dot-grid {
-    --dot-size: 1px;
-    --dot-gap: 26px;
-    background-image: radial-gradient(
-      circle at center,
-      var(--border-strong) var(--dot-size),
-      transparent var(--dot-size)
-    );
-    background-size: var(--dot-gap) var(--dot-gap);
+  .bg-line-grid {
+    --grid-gap: 56px;
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: var(--grid-gap) var(--grid-gap);
   }
 
-  /* Gradient rule that fades out at both ends, used as a section divider. */
+  .bg-fade-top {
+    mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black, transparent);
+  }
+
   .rule-fade {
     height: 1px;
     background: linear-gradient(

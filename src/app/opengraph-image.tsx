@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#0a0a0b",
+          backgroundColor: "#0b1120",
           padding: "72px",
           position: "relative",
         }}
@@ -43,7 +43,7 @@ export default function OpengraphImage() {
             width: 700,
             height: 700,
             borderRadius: 9999,
-            background: "rgba(240, 174, 60, 0.14)",
+            background: "rgba(37, 99, 235, 0.18)",
             filter: "blur(120px)",
             display: "flex",
           }}
@@ -55,9 +55,9 @@ export default function OpengraphImage() {
               width: 52,
               height: 52,
               borderRadius: 14,
-              border: "1px solid #2c2c33",
-              backgroundColor: "#121214",
-              color: "#f0ae3c",
+              border: "1px solid #334155",
+              backgroundColor: "#141c2f",
+              color: "#60a5fa",
               fontSize: 20,
               display: "flex",
               alignItems: "center",
@@ -69,7 +69,7 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              color: "#6f6a62",
+              color: "#8492a6",
               fontSize: 22,
               letterSpacing: 2,
             }}
@@ -82,7 +82,7 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              color: "#f6f3ee",
+              color: "#f8fafc",
               fontSize: 92,
               fontWeight: 700,
               letterSpacing: -3,
@@ -95,7 +95,7 @@ export default function OpengraphImage() {
             style={{
               display: "flex",
               marginTop: 14,
-              color: "#f0ae3c",
+              color: "#60a5fa",
               fontSize: 40,
               letterSpacing: -0.5,
             }}
@@ -107,7 +107,7 @@ export default function OpengraphImage() {
               display: "flex",
               marginTop: 26,
               maxWidth: 900,
-              color: "#a09a90",
+              color: "#94a3b8",
               fontSize: 27,
               lineHeight: 1.45,
             }}
@@ -122,7 +122,7 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: 14,
-            borderTop: "1px solid #24242a",
+            borderTop: "1px solid #1f2a40",
             paddingTop: 30,
           }}
         >
@@ -131,11 +131,11 @@ export default function OpengraphImage() {
               key={item}
               style={{
                 display: "flex",
-                border: "1px solid #24242a",
-                backgroundColor: "#121214",
+                border: "1px solid #1f2a40",
+                backgroundColor: "#141c2f",
                 borderRadius: 9999,
                 padding: "10px 22px",
-                color: "#a09a90",
+                color: "#94a3b8",
                 fontSize: 22,
               }}
             >
